@@ -1,0 +1,141 @@
+.panel-heading .nav {
+	border: medium none;
+	font-size: 13px;
+	margin-left: 0px;
+	margin-right: 0px;
+	text-transform: uppercase;
+}
+/*Panel Size*/
+
+.pn {
+	height: 250px;
+	box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+
+/*Grey Panel*/
+
+.grey-panel {
+	text-align: center;
+	background: #dfdfe1;
+}
+.grey-panel .grey-header {
+	background: #ccd1d9;
+	padding: 3px;
+	margin-bottom: 15px;
+}
+.grey-panel h5 {
+	font-weight: 200;
+	margin-top: 10px;
+}
+.grey-panel p {
+	margin-left: 5px;
+}
+/* Specific Conf for Donut Charts*/
+.donut-chart p {
+	margin-top: 20px;
+	font-weight: 700;
+	margin-left: 15px;
+}
+.donut-chart h2 {
+	font-weight: 900;
+	color: #FF6B6B;
+	font-size: 38px;
+}
+
+/* Dark Blue*/
+
+.darkblue-panel {
+	text-align: center;
+	background: #444c57;
+}
+.darkblue-panel .darkblue-header {
+	background: transparent;
+	padding: 3px;
+	margin-bottom: 15px;
+}
+.darkblue-panel h1 {
+	color: #f2f2f2;
+}
+.darkblue-panel h5 {
+	font-weight: 200;
+	margin-top: 10px;
+	color: white;
+}
+.darkblue-panel footer {
+	color: white;
+}
+.darkblue-panel footer h5 {
+	margin-left:10px;
+	margin-right: 10px;
+	font-weight: 700;
+}
+
+/*Green Panel*/
+.green-panel {
+	text-align: center;
+	background: #4ECDC4;
+}
+.green-panel .green-header {
+	background: #43b1a9;
+	padding: 3px;
+	margin-bottom: 15px;
+}
+.green-panel h5 {
+	color: white;
+	font-weight: 200;
+	margin-top: 10px;
+}
+.green-panel h3 {
+	color: white;
+	font-weight: 100;
+}
+.green-panel p {
+	color: white;
+}
+
+/*White Panel */
+.white-panel {
+	text-align: center;
+	background: #ffffff;
+}
+.white-panel .white-header {
+	background: #f3f3f3;
+	padding: 3px;
+	margin-bottom: 15px;
+}
+.white-panel .small {
+	font-size: 10px;
+	color: #ccd1d9;
+}
+
+.panel-heading .nav {
+	border: medium none;
+	font-size: 13px;
+	margin-left: 0px;
+	margin-right: 0px;
+	text-transform: uppercase;
+}
+.content-panel {
+	background: #ffffff;
+	box-shadow: 0px 3px 2px #aab2bd;
+	padding-top: 15px;
+	padding-bottom: 5px;
+}
+.content-panel h4 {
+	margin-left: 10px;
+}
+.mt {
+	margin-top: 25px;
+}
+
+.mb {
+	margin-bottom: 25px;
+}
+.centered {
+	text-align: center;
+}
+
+.col-lg-12{
+    
+}

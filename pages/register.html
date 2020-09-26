@@ -1,0 +1,86 @@
+<div class="container auth-form">
+    <h2>Register</h2>
+    <p class="hint-text">Create your account. </p>
+    <form id="frmRegister">
+        <div class="form-group">
+            <input type="text" id="frmRegisterUsername" class="form-control" name="USERNAME" placeholder="Username" required="required" value="">
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-6">
+                    <input type="text" class="form-control" name="FIRST_NAME" placeholder="First Name"
+                        required="required" value="">
+                </div>
+                <div class="col-6">
+                    <input type="text" class="form-control" name="LAST_NAME" placeholder="Last Name" required="required"
+                        value="">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <input type="email" class="form-control" name="EMAIL" placeholder="E-mail" required="required" value="">
+        </div>
+        <div class="form-group">
+            <input id="frmRegisterPassword" type="password" class="form-control" name="PASSWORD"
+                placeholder="Password" required="required" value="">
+        </div>
+        <div class="form-group">
+            <input id="frmRegisterConfirmPassword" type="password" class="form-control" name="CONFIRM_PASSWORD"
+                placeholder="Confirm Password" required="required">
+        </div>
+        <div class="form-group">
+            <button id="frmBtnRegister" type="submit" class="btn btn-info btn-lg btn-block">Register Now</button>
+        </div>
+        <div class="text-center">Already have an account? <a href="../login.php">Sign in</a></div>
+    </form>
+</div>
+
+<script>
+    $(function () {
+        $('#frmRegister').on('submit', function (e) {
+            e.preventDefault();
+            var FormData = $('#frmRegister').serialize();
+            var formPassword = $('#frmRegisterPassword');
+            var formConfirmPassword = $('#frmRegisterConfirmPassword');
+            
+            if(formPassword.val().length < 6) {
+                alert('Password must be longer than 6 characters');
+                formPassword.val('');
+                formConfirmPassword.val('');
+
+                return;
+            }
+
+            if(formPassword.val() != formConfirmPassword.val()) {
+                alert("Password doesn't match");
+                formConfirmPassword.val('');
+
+                return;
+            }
+
+            $.ajax({
+                type: 'post',
+                url: '../forms/register.php',
+                data: FormData,
+                dataType: 'json',
+                encode: true,
+                beforeSend: function () {
+                    $('#frmBtnRegister').text("Registering..");
+                },
+                success: function (data) {
+                    if (data.error) {
+                         $('#frmLoginUsername').text('');
+
+                         alert(data.error.msg);
+                    } else {
+                        alert(data.result);
+
+                       window.location = "http://127.0.0.1/urc/pages/confirmation.html";
+                    }
+
+                    $('#frmBtnRegister').text("Register");
+                }
+            });
+        });
+    });
+</script>
