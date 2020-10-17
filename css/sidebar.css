@@ -1,8 +1,7 @@
 #sidebar {
     width: 210px;
-    height: 100%;
-    position: fixed;
-    background: #2f323a;
+    height: 100vh;
+    background: #6c757d;
     float: left;
 }
 
@@ -65,7 +64,7 @@ ul.sidebar-menu , ul.sidebar-menu li ul.sub{
 }
 
 ul.sidebar-menu {
-    margin-top: 75px;
+    margin-top: 1rem;
 }
 
 #sidebar > ul > li > ul.sub {

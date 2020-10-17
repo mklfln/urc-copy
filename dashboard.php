@@ -10,7 +10,7 @@ if(!isset($_SESSION['loggedin']) || ($_SESSION['usertype'] !== 'admin')){
 <body>
 <?php
   require_once('./include/navbar.php');
-  require_once('./pages/dashboard.html');
+  require_once('./pages/sidebar.html');
   require_once('./include/footer.html');
 ?>
 </body>

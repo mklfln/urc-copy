@@ -13,8 +13,14 @@ if($_SESSION['user_type'] !== 'admin') {
 <body>
 <?php
   require_once('./include/navbar.php');
-  require_once('./pages/dashboard.html');
+?>
+  <div>
+  <?php 
+  require_once('./pages/sidebar.html');
   require_once('./pages/profile.html');
+  ?>
+</div>
+<?php
   require_once('./include/footer.html');
 ?>
 </body>
