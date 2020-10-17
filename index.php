@@ -1,8 +1,8 @@
-<!DOCTYPE html>
-<html>
 <?php
 require_once('./include/header.php');
 ?>
+<!DOCTYPE html>
+<html>
 <link rel="stylesheet" type="text/css" href="../css/style.css">
 <body>
 <?php

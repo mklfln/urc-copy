@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html>
 <?php require_once('./include/header.php');
 if(isset($_SESSION['loggedin'])) {
   header("location: ./index.php");
 }
 ?>
+<!DOCTYPE html>
+<html>
 <link rel="stylesheet" type="text/css" href="../css/auth.css">
 <body>
 <?php
