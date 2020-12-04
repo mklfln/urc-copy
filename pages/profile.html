@@ -1,3 +1,120 @@
-<section>
-    <h1>TEST</h1>
-</section>
+<div class="container">
+    <div class="main-body">
+          <div class="row gutters-sm">
+            <div class="col-md-4 mb-3">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex flex-column align-items-center text-center">
+                      <div class="img-container">
+                        <img src="../assets/images/test.png" alt="Admin" class="rounded-circle" width="150">  
+                     <div class="overlay">
+                        <form class="icon" title="Change picture">
+                           <i class="fas fa-edit"></i>
+                        </form>
+                          
+                     </div>
+                    </div>
+                    <div class="mt-3">
+                      <h4></h4>
+                      <p class="text-secondary mb-1">Full Stack Developer</p>
+                      <p class="text-muted font-size-sm">Jaro, Iloilo City, PH</p>
+                      <button class="btn btn-primary">Follow</button>
+                      <button class="btn btn-outline-primary">Message</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card mt-3">
+                  <h4>Notification</h4>
+                <ul class="list-group list-group-flush">
+                  <li class="dropdown list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                   <a href="#" class="nav-item" data-toggle="dropdown" role="button"><i class="far fa-bell"></i></a>
+                   <ul class="dropdown-menu notify-drop">
+                    <div class="notify-drop-title">
+                        <div class="row">
+                            <div class="col-md-6">Test</div>
+                        </div>
+                    </div>
+                    <div class="drop-content">
+                        <li>
+                            <div class="col-md-3 col-sm-3 col-xs-3"><a href="#">Test</a></div>
+                        </li>
+                    </div>
+                </ul>
+                  </li>
+
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-8">
+                <ul class="nav nav-tabs" id="myTab" data-id="myTab" role="tablist">
+                    <li class="nav-item active">
+                        <a class="nav-link active" data-toggle="tab" role="tab" href="#tab1">Details</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link"data-toggle="tab" role="tab" href="#tab2">Update user information</a>
+                  </li>
+                  </ul>
+                  <section class="tab-content active" id="tab1">
+                  </section> 
+                  <section class="tab-content hidden" id="tab2">
+                    <div id="userSettings" class="card mb-3 tab-pane active" role="tabpanel">
+                     <form action="POST">
+                       <div class="form-group">
+                        <input type="text" class="form-control form-control-inline" id="fName" placeholder="First Name">
+                       </div>
+                       <div class="form-group">
+                        <input type="text" class="form-control form-control-inline" placeholder="Last Name">
+                       </div>
+                       <div class="form-group">
+                        <input type="text" class="form-control form-control-inline" placeholder="Address">
+                       </div>
+                       <div class="form-group">
+                        <input type="text" class="form-control form-control-inline" placeholder="Phone">
+                       </div>
+                       <div class="form-group">
+                        <input type="text" class="form-control form-control-inline" placeholder="Mobile">
+                       </div>
+                     </form>
+                     <button class="btn btn-primary btn-placement">Update</button>
+                     <button class="btn btn-danger btn-placement">Cancel</button>
+                    </div>
+                  </section>        
+            </div>
+            
+            
+
+<script>
+  $(function(){
+    $('.nav-tabs > li > a').click(function(event){
+        event.preventDefault();
+        
+        var active_tab_selector = $('.nav-tabs > li.active > a').attr('href');
+
+        var actived_nav = $('.nav-tabs > li.active');
+        actived_nav.removeClass('active');
+
+        $(this).parents('li').addClass('active');
+        
+        $(active_tab_selector).removeClass('active');
+        $(active_tab_selector).addClass('hidden');
+
+        var target_tab_selector = $(this).attr('href');
+        $(target_tab_selector).removeClass('hidden');
+        $(target_tab_selector).addClass('active');
+         });
+  });
+
+  $(function(){
+
+    $.ajax({
+      type: 'POST',
+      url: '../include/userinfo.php',
+      dataType: 'html',
+      success : function(output){
+        $('#tab1').html(output);
+      }
+      
+    })
+  })
+</script>

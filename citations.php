@@ -5,9 +5,6 @@ require_once('./include/header.php');
 if($_SESSION['user_type'] !== 'admin') {
   header("location: ./index.php");  
 }
-
-$userid = $_SESSION['userid'];
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -20,7 +17,7 @@ $userid = $_SESSION['userid'];
   <div>
   <?php 
   require_once('./pages/sidebar.html');
-  require_once('./pages/profile.html');
+  require_once('./pages/citations.html');
   ?>
 </div>
 <?php
