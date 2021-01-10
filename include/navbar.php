@@ -43,11 +43,11 @@
                 <a class="nav-link" href="../login.php">Login</a>
             </li>
         <?php
-        } elseif($_SESSION['user_type'] == 'admin'){
+        } elseif($_SESSION['user_type'] == 'Admin'){
         ?>
 
             <li class="nav-item">
-            <a class="nav-link disabled">Welcome! <?php echo $_SESSION['user_type']?></a>
+            <a class="nav-link disabled">Welcome! <?php echo 'test'?></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="../admin-home.php">Profile</a>

@@ -1,0 +1,86 @@
+<div id="wrapper" class="toggled">
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand"> <a href="#"> Admin control panel</a> </li>
+            <li class="active"> <a href="#test1">User Settings</a> </li>
+            <li> <a href="#">Shortcuts</a> </li>
+            <li> <a href="#">Overview</a> </li>
+            <li> <a href="#">Events</a> </li>
+            <li> <a href="#">About</a> </li>
+            <li> <a href="#">Services</a> </li>
+            <li> <a href="#">Contact</a> </li>
+        </ul>
+    </div> <!-- /#sidebar-wrapper -->
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+        <div class="container-fluid">
+            <div class="active" id="test1">
+                <section>
+                    <h1>Test</h1>
+                    <div>
+                        <div class="container">
+                            <input class="form-control mb-4" id="tableSearch" type="text" name="tableSearch"
+                              placeholder="Search For Users">
+
+                            <table class="table table-bordered table-striped">
+                              <thead>
+                                <tr>
+                                  <th>Firstname</th>
+                                  <th>Lastname</th>
+                                  <th>Email</th>
+                                  <th>User Status</th>
+                                </tr>
+                              </thead>
+                              <tbody id="myTable">
+                              </tbody>
+                            </table>
+                          </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div> <!-- /#page-content-wrapper -->
+</div>
+
+
+ <script>
+     //display users
+
+//search
+$(function(){
+ $.ajax ({
+            type: 'post',
+            url: '../forms/loaddata.php',
+            dataType: 'html',
+            success: function (data) {
+               $('#myTable').html(data);
+            }
+     });      
+    });
+// Filter table
+
+$(document).ready(function(){
+  $("#tableSearch").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+}); 
+     $(function(){
+      $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+       });
+      $(window).resize(function(e) {
+      if($(window).width()<=768){
+     $("#wrapper").removeClass("toggled");
+       }else{
+         $("#wrapper").addClass("toggled");
+       }
+       });
+      });
+
+
+        </script>

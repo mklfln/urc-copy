@@ -85,3 +85,7 @@
 .auth-form form a:hover{
     text-decoration: underline;
 }  
+
+.modal-body > p {
+    justify-content: center;
+}

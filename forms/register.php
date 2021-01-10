@@ -1,6 +1,5 @@
 <?php
 
-require_once '../vendor/swiftmailer/autoload.php';
 include('../db/connection.php');
 $db = new db();
 
@@ -53,7 +52,15 @@ $TOKEN = bin2hex(random_bytes(50)); //Generate token used for email verification
          $stmt->bindParam(7, $TOKEN);
          $stmt->execute();
 
-         die(json_encode(array('result' => 'User registered successfully' )));
+         
+$to_email = $FORM_EMAIL;
+$subject = 'Verify Account';
+$message = 'Please click this link to verify account http://127.0.0.1/urc/pages/confirmation.php?token='.$TOKEN;
+$headers = 'From: mfaulan@gmail.com';
+if(mail($to_email,$subject,$message,$headers)){
+    die(json_encode(array('result' => 'User registered successfully' )));
+//echo "success";
+}
      }
  } catch (PDOException $e) {
      die(json_encode(array(

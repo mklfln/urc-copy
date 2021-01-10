@@ -8,7 +8,7 @@ $form_USERNAME = $_POST['USERNAME'];
 $form_PASSWORD = $_POST['PASSWORD'];
 
 try {
-    $sql = ("SELECT * FROM users WHERE username = :username");
+    $sql = ("SELECT * FROM users WHERE username = :username OR email = :username");
     $stmt = $db->connection->prepare($sql);
     $stmt->execute(array(
         ':username' => $form_USERNAME
@@ -16,7 +16,7 @@ try {
     $row=$stmt->fetch(PDO::FETCH_ASSOC);
 
     // Check if username is existing in database
-    if ($form_USERNAME == $row['username']) {
+    if ($form_USERNAME == $row['username'] || $row['email']) {
         if (password_verify($form_PASSWORD, $row['password'])) {
             session_start();
 
@@ -24,6 +24,8 @@ try {
             $_SESSION['userid'] = $row['user_id'];
             $_SESSION['username'] = $row['username'];
             $_SESSION['user_type'] = $row['user_type'];
+            $_SESSION['verified'] = $row['verified'];
+            $_SESSION['lName'] = $row['lName'];
             
             die(json_encode(array('result' => 'Succesfully logged in')));
         } else {

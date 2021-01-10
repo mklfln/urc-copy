@@ -13,55 +13,50 @@
         ));
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if($row['user_id'] == $userid){
-        echo  '<div class="card mb-3">
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Full Name:</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      '.$row['fName'].' '.$row['lName'].'
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Email</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      '.$row['email'].'
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Phone</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Mobile</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                        
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Address</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                       
-                    </div>
-                  </div>
-                </div>
-              </div>';
+        if($row['user_id'] === $userid){
+        echo  '<div class="col-sm-8">
+        <div class="profile-user-details clearfix">
+            <div class="profile-user-details-label">
+                First Name
+            </div>
+            <div class="profile-user-details-value">
+                '.$row['fName'].'
+            </div>
+        </div>
+        <div class="profile-user-details clearfix">
+            <div class="profile-user-details-label">
+                Last Name
+            </div>
+            <div class="profile-user-details-value">
+                '.$row['lName'].'
+            </div>
+        </div>
+        <div class="profile-user-details clearfix">
+            <div class="profile-user-details-label">
+                Address
+            </div>
+            <div class="profile-user-details-value">
+                10880 Malibu Point,
+                <br> Malibu, Calif., 90265
+            </div>
+        </div>
+        <div class="profile-user-details clearfix">
+            <div class="profile-user-details-label">
+                Email
+            </div>
+            <div class="profile-user-details-value">
+               '.$row['email'].'
+            </div>
+        </div>
+        <div class="profile-user-details clearfix">
+            <div class="profile-user-details-label">
+                Phone number
+            </div>
+            <div class="profile-user-details-value">
+                011 223 344 556 677
+            </div>
+        </div>
+    </div>';
 
         };
 ?>

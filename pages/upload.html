@@ -1,0 +1,30 @@
+
+<form id="uploadData" action="upload.php" method="post" enctype="multipart/form-data">
+  Select image to upload:
+  <input type="file" name="fileToUpload" id="fileToUpload">
+  <input type="submit" value="Upload Image" name="submit" id="upload">
+</form>
+
+</body>
+</html>
+
+<script>
+    $(function () {
+        $("#upload").click(function() { 
+               e.preventDefault();
+               var form = $("#uploadData");
+               var formdata = new FormData(form[0]);
+        $.ajax({
+          type: 'post',
+          url: '../forms/upload.php',
+          data: formdata,
+          contentType: false,
+          processData: false,
+          success: function(output){
+            alert(output);
+            $("#uploadData")[0].reset();
+          }
+            });
+        });
+    });
+</script>
